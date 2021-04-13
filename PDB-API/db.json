@@ -1,4 +1,6 @@
 {
+    "Protein-Helices":[
+{
     "1A62A": [
         {
             "length": 5,
@@ -85273,4 +85275,6 @@
             "class": "Right-handed alpha"
         }
     ]
+}
+]
 }
