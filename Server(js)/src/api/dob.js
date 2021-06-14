@@ -33,7 +33,8 @@ router.get('/:id', async (req, res, next) => {
     const item = await faqs.findOne({
       _id: id,
     });
-    if (!item) return next();
+    if (!item) 
+      return next();
     return res.json(item);
   } catch (error) {
     next(error);
@@ -59,7 +60,8 @@ router.put('/:id', async (req, res, next) => {
     const item = await faqs.findOne({
       _id: id,
     });
-    if (!item) return next();
+    if (!item) 
+      return next();
     await faqs.update({
       _id: id,
     }, {
