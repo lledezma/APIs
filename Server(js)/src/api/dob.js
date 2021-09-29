@@ -19,7 +19,7 @@ const router = express.Router();
 router.get('/', async (req, res, next) => {
   try {
     // awaits = function that returns a promise
-    const items = await faqs.find({});
+    const items = await dob.find({});
     res.json(items);
   } catch (error) {
     next(error);
@@ -30,7 +30,7 @@ router.get('/', async (req, res, next) => {
 router.get('/:id', async (req, res, next) => {
   try {
     const { id } = req.params;
-    const item = await faqs.findOne({
+    const item = await dob.findOne({
       _id: id,
     });
     if (!item) 
@@ -45,7 +45,7 @@ router.get('/:id', async (req, res, next) => {
 router.post('/', async (req, res, next) => {
   try {
     const value = await schema.validateAsync(req.body);
-    const inserted = await faqs.insert(value);
+    const inserted = await dob.insert(value);
     res.json(inserted);
   } catch (error) {
     next(error);
@@ -57,12 +57,12 @@ router.put('/:id', async (req, res, next) => {
   try {
     const { id } = req.params;
     const value = await schema.validateAsync(req.body);
-    const item = await faqs.findOne({
+    const item = await dob.findOne({
       _id: id,
     });
     if (!item) 
       return next();
-    await faqs.update({
+    await dob.update({
       _id: id,
     }, {
       $set: value,
@@ -77,7 +77,7 @@ router.put('/:id', async (req, res, next) => {
 router.delete('/:id', async (req, res, next) => {
   try {
     const { id } = req.params;
-    await faqs.remove({
+    await dob.remove({
       _id: id,
     });
     res.json({
